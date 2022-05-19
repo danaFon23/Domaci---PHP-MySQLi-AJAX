@@ -1,4 +1,4 @@
-* {
+  * {
     box-sizing: border-box;
 
   }
@@ -16,13 +16,14 @@
     z-index: -3;
   }
 
-
-  #teatar-bg-img {
-    background-image: url("../images/book1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 500px;
+  h1{
+    color: white;
+    text-align: center;
+    font-size: 130px;
+    
   }
+
+
 
   #background-img{
     content: " ";
@@ -74,11 +75,12 @@ table>tbody>tr:hover{
   text-decoration: none;
   padding: 7px;
 }
+
 /*RESPONSIVE NAVIGATION BAR*/
-  
+ 
   .topnav {
     overflow: hidden;
-    background-color: #464a4bb0;
+    background-color: #4b4946b0;
     justify-content: center;
     display: flex;
   }
@@ -117,7 +119,7 @@ table>tbody>tr:hover{
     }
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
       position: absolute;
