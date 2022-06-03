@@ -1,10 +1,10 @@
 <?php
-$baza = "bookstore";
-$server = "localhost";
-$user = "root";
-$password = "";
+$dbname = "bookstore";
+$servername = "localhost";
+$username = "root";
+$dbpassword = "";
 
-$konekcija = new mysqli($server, $user,$password, $baza);
+$konekcija = new mysqli($servername, $username,$dbpassword, $dbname);
 
 if($konekcija->connect_errno){
     printf("Neuspesna konekcija. Nastala je greska: %s\n", $mysqli->connect_error."Kod greske:".$konekcija->connect_errno);
@@ -13,7 +13,7 @@ if($konekcija->connect_errno){
 ?>
 <?php
 $host = "localhost";
-$db = "kolokvijumi";
+$db = "bookstore";
 $user = "root";
 $pass = "";
 
@@ -23,3 +23,6 @@ if ($conn->connect_errno){
 }
 
 ?>
+
+
+

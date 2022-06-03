@@ -1,142 +1,380 @@
   * {
-    box-sizing: border-box;
-
+      margin: 0;
+      box-sizing: border-box;
+      
   }
-  html,body{
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+
+  html,
+  body {
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif, inherit;
+      overflow-x: hidden;
+  }
+  
+  
+
+  th {
+    width: 200px;
+    
+  }
+
+  .tableBooks {
+    color:rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    width: 50em; /* or whatever... */
+    max-width: 200em; /* or whatever... */
+    height: 2em; /* or whatever... */
+    line-height: 2em; /* or whatever... */
+    text-align: center; /* a personal aesthetic choice... */
+    overflow: hidden; /* to prevent overflow... */
+    margin-left: 420px;
+  }
+
+
+  /*Padajuci meni u Pretrazivanje*/
+  .container {
+      margin-top: 80px;
+      text-align: center;
+      padding: 32px;
+  }
+  .select-box {
+      display: flex;
+      width: 600px;
+      flex-direction: column; /*Da nam Izaberi zanr stoji dole, ispod opcija, a ne sa strane*/
+  }
+  .select-box .options-container {
+
+      background: #2f3641e7;
+      color: #f5f6fa;
+      max-height: 0;
+      width: 100%;
+      opacity: 0;
+      transition: all 0.4s;
+      border-radius: 8px;
+      overflow: hidden;
+
+      order: 1; /*Da nam opcije budu islpod Izaberi zanr*/
+  }
+
+  .selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #f5f6fa;
+    position: relative;
+
+    order: 0; /*Da nam Izaberi zanr bude iznad opcija*/
+  }
+
+  .selected::after {
+    content: "";
+    background: url("../images/Arrow-down.svg.png"); /*Dodavanje strelice da izadju dole opcije*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+    
+    transition: all 0.4s;
+    
+  }
+
+  /*Ovo je za container da ima scroll bar */
+  .select-box .options-container.active {
+      max-height: 240px;
+      opacity: 1;
+      overflow-y: scroll;
+  }
+
+  .select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);  /*Okrecemo na gore strelicu*/
+    top: -6px;
+  }
+
+  .select-box .options-container::-webkit-scrollbar {
+      width: 8px;
+      background: #0d141f;
+      border-radius: 0 8px 8px 0;
+      /*za zaobljene uglove kod scroll bara*/
+  }
+  
+  /*Za scroll bar da ima tockic za pomeranje, koji je stilizovan*/
+  .select-box .options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+  }
+ 
+  .select-box .option,
+  .selected {
+      padding: 12px 24px;
+      cursor: pointer;
+  }
+  .select-box .option:hover {
+      background: #8c9196;
+  }
+  .select-box label {
+      cursor: pointer;
+  }
+  .select-box .option .radio {
+      display: none;
+  }
+  
+  /*Stranica za dodavanje knjige - Podaci o knjizi box */
+
+  .main {
+      width: 400px;
+      background-color: rgba(177, 168, 168, 0.5) !important;
+      margin: 75px auto;
+      padding: 10px;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: inherit;
+  }
+
+  /*Stranica za dodavanje knjige-polja u Podaci o knjizi boxu */
+
+  .main-part {
+      width: 100%;
+      resize: vertical;
+      border-radius: 10px;
+      padding: 10px;
+      border: 0;
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+      height: 40px;
+      font-family: inherit;
+      font-size: inherit;
+      margin-bottom: 5px;
+  }
+
+  /* Naslov: Podaci o knjizi*/
+
+  .header {
+      width: 100%;
+      text-align: left;
+      font-weight: bold;
+      padding: 10px;
+      color: rgb(10, 8, 8);
+      font-size: 18px;
+  }
+
+  /*Naslov: Pronadji zeljenu knjigu */
+
+  .headerPronadji {
+      width: 100%;
+      text-align: center;
+      padding: 150px;
+      color: rgb(255, 255, 255);
+      font-size: 40px;
+  }
+
+  /* Dugme za dodavanje knjige */
+
+  .sub-btn {
+      width: 30%;
+      border: none;
+      padding: 7px;
+      font-size: 18px;
+      background-color: rgba(2, 1, 1, 0.822);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: inherit;
+      margin-bottom: 5px;
+  }
+
+  
+  #success {
+      width: 100%;
+      text-align: center;
+      color: #c04;
+      margin-top: 10px;
+      font-size: 18px;
   }
 
   a.column_sort {
-    color: white;
+      color: rgb(25, 13, 197);
   }
 
-  body{
-    z-index: -3;
+  h1 {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      font-size: 130px;
   }
 
-  h1{
-    color: white;
-    text-align: center;
-    font-size: 130px;
-    
+  h2 {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      font-size: 40px;
+      margin-top: 30px;
+  }
+
+  /* Slika na stranici Pretraga */
+  #background-img3 {
+      content: " ";
+      position: fixed;
+      top: 0;
+      background-image: url("../images/bookstore5.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      margin: auto;
+      display: grid;
+  }
+
+  /* Slika na stranici Dodavanje knjige */
+
+  #background-img2 {
+      content: " ";
+      position: fixed;
+      top: 0;
+      background-image: url("../images/Book3.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      margin: auto;
+      display: grid;
+  }
+
+  #background-img {
+      content: " ";
+      position: fixed;
+      top: 0;
+      background-image: url("../images/bookstore2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
   }
 
 
-
-  #background-img{
-    content: " ";
-    position: fixed;
-    top: 0;
-    background-image: url("../images/bookstore2.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-
+  .d-flex {
+      display: flex;
+      align-items: center;
   }
-.d-flex {
-  display: flex;
-  align-items: center;
-}
 
-label{
-    color: azure;
-}
-#btn_find{
-    margin-left: 20px
-}
+  label {
+      color: azure;
+  }
 
-.table{
-    color: #ddd;
-}
-table>tbody>tr:hover{
-    background-color: rgba(177, 168, 168, 0.5) !important;
-    color: white;
-}
-.icon-images{
-  margin: 2px;
-}
-.icon-images:hover{
-  padding: 3px;
-}
-#sort>a{
-  padding: 5px;
-  border: solid 1px   #aa1c1c;
-  background-color:   #797979;
-  color: azure;
-  margin: 5px;
-  border-radius: 3px;
-}
-#sort>a:hover{
-  text-decoration: none;
-  padding: 7px;
-}
+  #btn_find {
+      margin-left: 20px
+  }
 
-/*RESPONSIVE NAVIGATION BAR*/
- 
+  .table {
+      color: #ddd;
+  }
+
+  table>tbody>tr:hover {
+      background-color: rgba(177, 168, 168, 0.5) !important;
+      color: white;
+  }
+
+  .icon-images {
+      margin: 2px;
+  }
+
+  .icon-images:hover {
+      padding: 3px;
+  }
+
+  #sort>a {
+      padding: 5px;
+      border: solid 1px #aa1c1c;
+      background-color: #797979;
+      color: azure;
+      margin: 5px;
+      border-radius: 3px;
+  }
+
+  #sort>a:hover {
+      text-decoration: none;
+      padding: 7px;
+  }
+
+  /*RESPONSIVE NAVIGATION BAR*/
+
   .topnav {
-    overflow: hidden;
-    background-color: #4b4946b0;
-    justify-content: center;
-    display: flex;
+      overflow: hidden;
+      background-color: #4b4946b0;
+      justify-content: center;
+      display: flex;
   }
-  
+
   .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
   }
-  
+
   .topnav a:hover,
   .topnav a:active {
-    background-color: #ddd;
-    color: black;
-    
+      background-color: #ddd;
+      color: black;
   }
-  
+
   .active {
-    background-color: #6a6d6b;
-    color: white;
+      background-color: #6a6d6b;
+      color: white;
   }
-  
+
   .topnav .icon {
-    display: none;
+      display: none;
   }
-  
+
   @media screen and (max-width: 600px) {
-    .topnav a {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  }
-.row{
-    margin: 0;
-}
-@media screen and (min-width:1200px){
-    #uni-logos-wrapper{
-        padding:  0 20%; 
+      .topnav a {
+          display: none;
       }
-}
+
+      .topnav a.icon {
+          float: right;
+          display: block;
+      }
+  }
+
+  @media screen and (max-width: 500px) {
+      .topnav.responsive {
+          position: relative;
+      }
+
+      .topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+      }
+
+      .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+      }
+  }
+
+  .row {
+      margin: 0;
+  }
+
+  @media screen and (min-width:1200px) {
+      #uni-logos-wrapper {
+          padding: 0 20%;
+      }
+  }

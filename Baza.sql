@@ -38,6 +38,6 @@ insert  into `zanr_knjige`(`id_zanra`,`naziv_zanra`) values
 (5,'Psihologija'),
 (6,'Filozofija'),
 (7,'Horor'),
-(8,'Kjnige za decu'),
+(8,'Knjige za decu'),
 (9,'Triler'),
 (10,'Komedija');
