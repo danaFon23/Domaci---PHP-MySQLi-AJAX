@@ -1,7 +1,7 @@
   * {
       margin: 0;
       box-sizing: border-box;
-      
+
   }
 
   html,
@@ -10,24 +10,30 @@
       font-family: Arial, Helvetica, sans-serif, inherit;
       overflow-x: hidden;
   }
-  
-  
+
+
 
   th {
-    width: 200px;
-    
+      width: 200px;
+
   }
 
   .tableBooks {
-    color:rgb(255, 255, 255);
-    border: 1px solid #ccc;
-    width: 50em; /* or whatever... */
-    max-width: 200em; /* or whatever... */
-    height: 2em; /* or whatever... */
-    line-height: 2em; /* or whatever... */
-    text-align: center; /* a personal aesthetic choice... */
-    overflow: hidden; /* to prevent overflow... */
-    margin-left: 420px;
+      color: rgb(255, 255, 255);
+      border: 1px solid #ccc;
+      width: 50em;
+      /* or whatever... */
+      max-width: 200em;
+      /* or whatever... */
+      height: max-content;
+      /* or whatever... */
+      line-height: 2em;
+      /* or whatever... */
+      text-align: center;
+      /* a personal aesthetic choice... */
+      overflow: hidden;
+      /* to prevent overflow... */
+      margin-left: 420px;
   }
 
 
@@ -37,11 +43,14 @@
       text-align: center;
       padding: 32px;
   }
+
   .select-box {
       display: flex;
       width: 600px;
-      flex-direction: column; /*Da nam Izaberi zanr stoji dole, ispod opcija, a ne sa strane*/
+      flex-direction: column;
+      /*Da nam Izaberi zanr stoji dole, ispod opcija, a ne sa strane*/
   }
+
   .select-box .options-container {
 
       background: #2f3641e7;
@@ -53,33 +62,36 @@
       border-radius: 8px;
       overflow: hidden;
 
-      order: 1; /*Da nam opcije budu islpod Izaberi zanr*/
+      order: 1;
+      /*Da nam opcije budu islpod Izaberi zanr*/
   }
 
   .selected {
-    background: #2f3640;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    color: #f5f6fa;
-    position: relative;
+      background: #2f3640;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      color: #f5f6fa;
+      position: relative;
 
-    order: 0; /*Da nam Izaberi zanr bude iznad opcija*/
+      order: 0;
+      /*Da nam Izaberi zanr bude iznad opcija*/
   }
 
   .selected::after {
-    content: "";
-    background: url("../images/Arrow-down.svg.png"); /*Dodavanje strelice da izadju dole opcije*/
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-    position: absolute;
-    height: 100%;
-    width: 32px;
-    right: 10px;
-    top: 5px;
-    
-    transition: all 0.4s;
-    
+      content: "";
+      background: url("../images/Arrow-down.svg.png");
+      /*Dodavanje strelice da izadju dole opcije*/
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      position: absolute;
+      height: 100%;
+      width: 32px;
+      right: 10px;
+      top: 5px;
+
+      transition: all 0.4s;
+
   }
 
   /*Ovo je za container da ima scroll bar */
@@ -89,9 +101,10 @@
       overflow-y: scroll;
   }
 
-  .select-box .options-container.active + .selected::after {
-    transform: rotateX(180deg);  /*Okrecemo na gore strelicu*/
-    top: -6px;
+  .select-box .options-container.active+.selected::after {
+      transform: rotateX(180deg);
+      /*Okrecemo na gore strelicu*/
+      top: -6px;
   }
 
   .select-box .options-container::-webkit-scrollbar {
@@ -100,28 +113,31 @@
       border-radius: 0 8px 8px 0;
       /*za zaobljene uglove kod scroll bara*/
   }
-  
+
   /*Za scroll bar da ima tockic za pomeranje, koji je stilizovan*/
   .select-box .options-container::-webkit-scrollbar-thumb {
-    background: #525861;
-    border-radius: 0 8px 8px 0;
+      background: #525861;
+      border-radius: 0 8px 8px 0;
   }
- 
+
   .select-box .option,
   .selected {
       padding: 12px 24px;
       cursor: pointer;
   }
+
   .select-box .option:hover {
       background: #8c9196;
   }
+
   .select-box label {
       cursor: pointer;
   }
+
   .select-box .option .radio {
       display: none;
   }
-  
+
   /*Stranica za dodavanje knjige - Podaci o knjizi box */
 
   .main {
@@ -166,8 +182,7 @@
   /*Naslov: Pronadji zeljenu knjigu */
 
   .headerPronadji {
-      width: 100%;
-      text-align: center;
+      width: 65%;
       padding: 150px;
       color: rgb(255, 255, 255);
       font-size: 40px;
@@ -189,7 +204,7 @@
       margin-bottom: 5px;
   }
 
-  
+
   #success {
       width: 100%;
       text-align: center;

@@ -1,37 +1,66 @@
+
+
+
 const selected = document.querySelector(".selected");
 const optionsContainer = document.querySelector(".options-container");
 
 const optionsList = document.querySelectorAll(".option");
 
-selected.addEventListener("click", () => {      //Ovo nam suzi da kada kliknemo na strelicu da nam otvori ponudeljene odg, a kada pet kliknemo, da zatvori
+selected.addEventListener("click", () => {      //Ovo nam sluzi da kada kliknemo na strelicu da nam otvori ponudeljene odg, a kada opet kliknemo, da zatvori
     optionsContainer.classList.toggle("active");  //Ako je klasa aktvina kada klinkemo, ucini je neaktivnom, ako je neaktivna, ucini je aktivnom. Aktivna klasa je kada nam se otvori padajuci meni
+    
 });                                                /*Kod za dodavanje i uklanjanje aktivne klase*/
 
 
-function selectBrand(){
-    var x = document.getElementById("naziv_zanra");
+  
+optionsList.forEach( o =>{
+    o.addEventListener("click", () => {
+        selected.innerHTML = o.querySelector("option").innerHTML;  
+        var id_zanra = o.querySelector("option").value;                             //$(".selected").text();
+        optionsContainer.classList.remove("active");                             //Kada kliknemo na neku opciju, da se ona zadrzi na Izaberi zanr i da se zatvore ostale opcije
+        
+            //window.alert(id_zanra);
+            
+            $.ajax({
+                url:"prikaziKnjige.php",
+                method: "POST",
+                data: 
+                {
+                    id_zanra : id_zanra
+                },
+                success:function(data){
+                    $("#ans").html(data);   //Prikazuje podatke o odabranom zanru
+                }
+                
+            });
+
+           });
+           
+            
+        });
+        
+    //}); 
+    
+//}); 
+
+   /* var value = $(this).find(":selected").val();
+    //document.getElementById("zanrovi").value; //OVDE JE PROBLEM
 
     $.ajax({
         url:"prikaziKnjige.php",
+        datatype: "json",
         method: "POST",
-        data:{
-            id: x
-        },
+        data:  value,
+        
         success:function(data){
-            $("ans").innerHTML(data);   //Prikazuje podatke o odabranom zanru
-        }
-    })
-}
+            $("#ans").html(data);   //Prikazuje podatke o odabranom zanru
+    
+    
+})*/
 
 
-optionsList.forEach( o =>{
-    o.addEventListener("click", () => {
-        selected.innerHTML = o.querySelector("option").innerHTML;
-        optionsContainer.classList.remove("active");
-        selectBrand();
-    });
-}); //Kada kliknemo na neku opciju, da se ona zadrzi na Izaberi zanr i da se zatvore ostale opcije
 
+   
 
 
 
