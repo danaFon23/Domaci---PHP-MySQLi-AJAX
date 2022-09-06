@@ -263,6 +263,21 @@
       display: grid;
   }
 
+  #background-img-delete {
+    content: " ";
+    position: fixed;
+    top: 0;
+    background-image: url("../images/book1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    margin: auto;
+    display: grid;
+}
+
   #background-img {
       content: " ";
       position: fixed;
